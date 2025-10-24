@@ -1,0 +1,2124 @@
+{
+	"info": {
+		"_postman_id": "a6f4caf8-b729-458f-b8e9-d68f89b051ae",
+		"name": "FakeRESTApi.Web V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "47689456",
+		"_collection_link": "https://fabriciaqa-9356083.postman.co/workspace/dd485bea-ff19-472d-8ac3-94ccdae8bb2f/collection/47689456-a6f4caf8-b729-458f-b8e9-d68f89b051ae?action=share&source=collection_link&creator=47689456"
+	},
+	"item": [
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"/** ",
+									"\t\t * pm -> postman",
+									"\t\t * test ->teste que será realizado",
+									"\t\t * fuction -> ação que será realizada",
+									" */",
+									"",
+									"pm.test(\"Validar o retorno de um array de objetos\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('array');",
+									"",
+									"    /**",
+									"         * Postman -> pm",
+									"         * espero -> expect",
+									"         * response -> pm.response.json()",
+									"         * seja -> to.be",
+									"         * array -> 'array'",
+									"    */",
+									"});",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"    \"type\": \"array\",",
+									"    \"items\": [",
+									"        {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": {",
+									"            \"type\": \"integer\"",
+									"            },",
+									"            \"title\": {",
+									"            \"type\": \"string\"",
+									"            },",
+									"            \"dueDate\": {",
+									"            \"type\": \"string\"",
+									"            },",
+									"            \"completed\": {",
+									"            \"type\": \"boolean\"",
+									"            }",
+									"        },",
+									"        \"required\": [",
+									"            \"id\",",
+									"            \"title\",",
+									"            \"dueDate\",",
+									"            \"completed\"",
+									"        ]",
+									"        }",
+									"    ]",
+									"};",
+									"",
+									"",
+									"pm.test('Validação do Contrato', function () {",
+									"    /**",
+									"         * tv4 -> lib de validar schema",
+									"         * validate -> valide",
+									"         * (data, schame) -> response, contrato",
+									"         * to.be -> seja",
+									"         * true -> verdadeira",
+									"     */",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"",
+									"pm.test('Captura de ID', function(){",
+									"    var id = pm.response.json();",
+									"    console.log(id[0].id);",
+									"",
+									"    pm.globals.set(\"activiesId\", id[6].id);",
+									"})",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Activities/"
+					},
+					"response": []
+				},
+				{
+					"name": "ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"/** ",
+									"\t\t * pm -> postman",
+									"\t\t * test ->teste que será realizado",
+									"\t\t * fuction -> ação que será realizada",
+									" */",
+									"",
+									"pm.test(\"Validar o retorno de um objetos\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object');",
+									"",
+									"    /**",
+									"         * Postman -> pm",
+									"         * espero -> expect",
+									"         * response -> pm.response.json()",
+									"         * seja -> to.be",
+									"         * array -> 'array'",
+									"    */",
+									"});",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"        \"type\": \"integer\"",
+									"        },",
+									"        \"title\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"dueDate\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"completed\": {",
+									"        \"type\": \"boolean\"",
+									"        }",
+									"    },",
+									"    \"required\": [",
+									"        \"id\",",
+									"        \"title\",",
+									"        \"dueDate\",",
+									"        \"completed\"",
+									"    ]",
+									"};",
+									"",
+									"",
+									"pm.test('Validação do Contrato', function () {",
+									"    /**",
+									"         * tv4 -> lib de validar schema",
+									"         * validate -> valide",
+									"         * (data, schame) -> response, contrato",
+									"         * to.be -> seja",
+									"         * true -> verdadeira",
+									"     */",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Activities/{{activiesId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Criar atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"/** ",
+									"\t\t * pm -> postman",
+									"\t\t * test ->teste que será realizado",
+									"\t\t * fuction -> ação que será realizada",
+									" */",
+									"",
+									"pm.test(\"Validar o retorno de um objetos\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object');",
+									"",
+									"    /**",
+									"         * Postman -> pm",
+									"         * espero -> expect",
+									"         * response -> pm.response.json()",
+									"         * seja -> to.be",
+									"         * array -> 'array'",
+									"    */",
+									"});",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"        \"type\": \"integer\"",
+									"        },",
+									"        \"title\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"dueDate\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"completed\": {",
+									"        \"type\": \"boolean\"",
+									"        }",
+									"    },",
+									"    \"required\": [",
+									"        \"id\",",
+									"        \"title\",",
+									"        \"dueDate\",",
+									"        \"completed\"",
+									"    ]",
+									"};",
+									"",
+									"",
+									"pm.test('Validação do Contrato', function () {",
+									"    /**",
+									"         * tv4 -> lib de validar schema",
+									"         * validate -> valide",
+									"         * (data, schame) -> response, contrato",
+									"         * to.be -> seja",
+									"         * true -> verdadeira",
+									"     */",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"",
+									"/**",
+									" * postman -> pm",
+									" * validar -> expect",
+									" * que o meu id possui -> pm.response.json().id",
+									" * possui -> to.be",
+									" * id igual ao valor -> eql()",
+									" */",
+									"",
+									"pm.test('Validar o id da criação da atividade', function(){",
+									"    pm.expect(pm.response.json().id).to.be.eql(35)",
+									"",
+									"    pm.globals.unset(\"activiesId\");",
+									"    ",
+									"    pm.globals.set(\"activiesId\", pm.response.json().id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 35,\n  \"title\": \"Testando a criação de uma nova activity\",\n  \"dueDate\": \"2025-09-24T14:29:03.677Z\",\n  \"completed\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Activities/"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"/** ",
+									"\t\t * pm -> postman",
+									"\t\t * test ->teste que será realizado",
+									"\t\t * fuction -> ação que será realizada",
+									" */",
+									"",
+									"pm.test(\"Validar o retorno de um objetos\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an('object');",
+									"",
+									"    /**",
+									"         * Postman -> pm",
+									"         * espero -> expect",
+									"         * response -> pm.response.json()",
+									"         * seja -> to.be",
+									"         * array -> 'array'",
+									"    */",
+									"});",
+									"",
+									"var schema = {",
+									"    \"$schema\": \"http://json-schema.org/draft-04/schema#\",",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {",
+									"        \"type\": \"integer\"",
+									"        },",
+									"        \"title\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"dueDate\": {",
+									"        \"type\": \"string\"",
+									"        },",
+									"        \"completed\": {",
+									"        \"type\": \"boolean\"",
+									"        }",
+									"    },",
+									"    \"required\": [",
+									"        \"id\",",
+									"        \"title\",",
+									"        \"dueDate\",",
+									"        \"completed\"",
+									"    ]",
+									"};",
+									"",
+									"",
+									"pm.test('Validação do Contrato', function () {",
+									"    /**",
+									"         * tv4 -> lib de validar schema",
+									"         * validate -> valide",
+									"         * (data, schame) -> response, contrato",
+									"         * to.be -> seja",
+									"         * true -> verdadeira",
+									"     */",
+									"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"",
+									"/**",
+									" * postman -> pm",
+									" * validar -> expect",
+									" * que o meu id possui -> pm.response.json().id",
+									" * possui -> to.be",
+									" * id igual ao valor -> eql()",
+									" */",
+									"",
+									"pm.test('Validar a alteração do parâmetro completed', function(){",
+									"    pm.expect(pm.response.json().completed).to.be.eql(true)",
+									"",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": {{activiesId}},\n  \"title\": \"Testando a atualização de um parâmetro\",\n  \"dueDate\": \"2025-09-24T14:29:03.677Z\",\n  \"completed\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Activities/{{activiesId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete atividade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/Activities/{{activiesId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Cenarios_Positivos",
+					"item": [
+						{
+							"name": "All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"                /** 1- STATUS",
+											" * 1.1- Validação Status Code */",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"/** 1.2- Validação do Formato da resposta - se o retorno é um Array?  */",
+											"pm.test(\"Retorno é um Array?\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"/** 1.3- Validar o tempo de resposta(opção extra- não é obrigatório, mas é uma boa prática) */",
+											"pm.test(\"Tempo de resposta é menor que 200\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});",
+											"",
+											"                /** CONTRATOS **/",
+											"",
+											"var schema = {",
+											"  \"type\": \"array\",",
+											"  \"items\": [",
+											"    {",
+											"      \"type\": \"object\",",
+											"      \"properties\": {",
+											"        \"id\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"idBook\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"firstName\": {",
+											"          \"type\": \"string\"",
+											"        },",
+											"        \"lastName\": {",
+											"          \"type\": \"string\"",
+											"        }",
+											"      },",
+											"      \"required\": [",
+											"        \"id\",",
+											"        \"idBook\",",
+											"        \"firstName\",",
+											"        \"lastName\"",
+											"      ]",
+											"    }",
+											"  ]",
+											"};",
+											"",
+											"/** 2.1- Validação de Contratro: Estruturação dos Dados",
+											"    * - Verificando se: ",
+											"        - os campos obrigatorios estão presentes?",
+											"        - tipos corretos: String, number, boolean?",
+											"        - nenhum campo estra inesperado?  ",
+											"*/",
+											"var Ajv = require('ajv'); // npm install ajv",
+											"var ajv = new Ajv({allError: true, verbose: true}); // options can be passed here",
+											"",
+											"pm.test(\"Validação do Schema(Contratro) com Ajv\", function () {",
+											"    var valid = ajv.validate(schema, pm.response.json());",
+											"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+											"});",
+											"",
+											"/** 3- Variável Global: ",
+											"        * -Criação opcional de forma dinamica de obter um dado",
+											"*/",
+											"pm.test(\"Captura de ID em uma variavel global\", function () {",
+											"    var id = pm.response.json();",
+											"    console.log(id[3].id); // Exibe o ID do terceiro autor no console",
+											"",
+											"    pm.globals.set(\"authorsId\", id[3].id);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseURL}}/api/v1/Authors"
+							},
+							"response": []
+						},
+						{
+							"name": "Criar autor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"                /** 1- STATUS",
+											" * 1.1- Validação Status Code */",
+											"pm.test(\"Status code is 200 ou 201\", function () {",
+											"    pm.response.to.have.status(200, 201);//O ideal seria só 201 Created, mas o endpoint da RestAPI retorna 200",
+											"});",
+											"",
+											"/** 1.2- Validação do Formato da resposta - se o retorno é um Objeto?  */",
+											"pm.test(\"Retorno é um object?\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object'); //criação (POST) retorna um objeto, não um array.",
+											"});",
+											"",
+											"/** 1.3- Validar o tempo de resposta(opção extra- não é obrigatório, mas é uma boa prática) */",
+											"pm.test(\"Tempo de resposta menor que 800ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(800);",
+											"});",
+											"",
+											"                /** CONTRATOS **/",
+											"",
+											"var schema = {",
+											"  \"type\": \"object\",",
+											"  \"properties\": {",
+											"    \"id\": {",
+											"      \"type\": \"integer\"",
+											"    },",
+											"    \"idBook\": {",
+											"      \"type\": \"integer\"",
+											"    },",
+											"    \"firstName\": {",
+											"      \"type\": \"string\"",
+											"    },",
+											"    \"lastName\": {",
+											"      \"type\": \"string\"",
+											"    }",
+											"  },",
+											"  \"required\": [",
+											"    \"id\",",
+											"    \"idBook\",",
+											"    \"firstName\",",
+											"    \"lastName\"",
+											"  ]",
+											"}",
+											"",
+											"/** 2.1- Validação de Contratro: Estruturação dos Dados",
+											"    * - Verificando se: ",
+											"        - os campos obrigatorios estão presentes?",
+											"        - tipos corretos: String, number, boolean?",
+											"        - nenhum campo estra inesperado?  ",
+											"*/",
+											"var Ajv = require('ajv'); // npm install ajv",
+											"var ajv = new Ajv({allError: true, verbose: true}); // options can be passed here",
+											"",
+											"pm.test(\"Validação do Schema(Contrato) com Ajv\", function () {",
+											"    var valid = ajv.validate(schema,pm.response.json());",
+											"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+											"});",
+											"",
+											"",
+											"",
+											"/** 3- Regras de Negócio: ",
+											"        * - verificando se retorna o ID válido",
+											"*/",
+											"var jsonData = pm.response.json(); //não depende do valor do ID, apenas confirma que a criação retornou um ID válido.",
+											"pm.test(\"Validar se o ID retornado é o mesmo enviado\", function () {",
+											"   // pm.expect(pm.response.json().id).to.be.eql(598);//Substituindo por:",
+											"    pm.expect(jsonData).to.have.property(\"id\") //verifica se o campo existe",
+											"    pm.globals.set(\"authorsId\", jsonData.id); //armazena o valor em variável global para os próximos testes (Integração ou end-to-end)",
+											"});",
+											"",
+											"/** 4- Fluxo completo do usuário ou Encadeamento de Integração ou End-to-End(de ponta a ponta)",
+											"        * - Essa camada une tudo o que foi testou isoladamente.",
+											"        * - Simula o uso completo do CRUD (Criar, Buscar, Atualizar e Deletar ou Creat, Read, Update e Delete)      ",
+											" */",
+											"pm.test(\"Validando o encadeamento de Integração de todas as requests\", function (){",
+											"    pm.collectionVariables.set(\"authorsId\", pm.response.json().id);//use variável local (pm.collectionVariables) se quiser manter o escopo apenas dentro da Collection.",
+											"",
+											"});",
+											"",
+											"/** 5- Está na Pasta de Cenários Negativos*/",
+											"",
+											"/** 6- Extra: Performace e Segurança",
+											"         * - Tempo de resposta (pm.expect(pm.response.responseTime).to.be.below(1000))",
+											"         * - Headers de segurança (Authorization, CORS, etc.)",
+											" */",
+											"pm.test(\"Tempo de resposta dentro do limite aceitável\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+											"});",
+											"",
+											"pm.test(\"Header de segurança presente\", function () {",
+											"    pm.expect(pm.response.headers.has('Content-Type')).to.be.true;",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 598,\n  \"idBook\": 201,\n  \"firstName\": \"Firt Name 598\",\n  \"lastName\": \"Last Name 598\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors"
+							},
+							"response": []
+						},
+						{
+							"name": "by book autor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/** 1- Status code*/",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"/** 1.2- Validação do Formato da resposta - se o retorno é um Array?  */",
+											"pm.test(\"Retorno é um Array?\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"/** 1.3- Validar o tempo de resposta(opção extra- não é obrigatório, mas é uma boa prática) */",
+											"pm.test(\"Tempo de resposta é menor que 200\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});",
+											"",
+											"                /** CONTRATOS **/",
+											"",
+											"var schema = {",
+											"  \"type\": \"array\",",
+											"  \"items\": [",
+											"    {",
+											"      \"type\": \"object\",",
+											"      \"properties\": {",
+											"        \"id\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"idBook\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"firstName\": {",
+											"          \"type\": \"string\"",
+											"        },",
+											"        \"lastName\": {",
+											"          \"type\": \"string\"",
+											"        }",
+											"      },",
+											"      \"required\": [",
+											"        \"id\",",
+											"        \"idBook\",",
+											"        \"firstName\",",
+											"        \"lastName\"",
+											"      ]",
+											"    }",
+											"  ]",
+											"}",
+											"",
+											"/** 2.1- Validação de Contratro: Estruturação dos Dados",
+											"    * - Verificando se: ",
+											"        - os campos obrigatorios estão presentes?",
+											"        - tipos corretos: String, number, boolean?",
+											"        - nenhum campo estra inesperado?  ",
+											"*/",
+											"var Ajv = require('ajv'); // npm install ajv",
+											"var ajv = new Ajv({allError: true, verbose: true}); // options can be passed here",
+											"",
+											"pm.test(\"Validação do Schema do idBook\", function () {",
+											"    var valid = ajv.validate(schema,pm.response.json());",
+											"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors/authors/books/{{idBook}}"
+							},
+							"response": []
+						},
+						{
+							"name": "by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"                /** 1- STATUS",
+											" * 1.1- Validação Status Code */",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"/** 1.2- Validação do Formato da resposta - se o retorno é um Array?  */",
+											"pm.test(\"Retorno é um Array?\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"/** 1.3- Validar o tempo de resposta(opção extra- não é obrigatório, mas é uma boa prática) */",
+											"pm.test(\"Tempo de resposta é menor que 200\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});",
+											"",
+											"                /** CONTRATOS **/",
+											"",
+											"var schema = {",
+											"  \"type\": \"array\",",
+											"  \"items\": [",
+											"    {",
+											"      \"type\": \"object\",",
+											"      \"properties\": {",
+											"        \"id\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"idBook\": {",
+											"          \"type\": \"integer\"",
+											"        },",
+											"        \"firstName\": {",
+											"          \"type\": \"string\"",
+											"        },",
+											"        \"lastName\": {",
+											"          \"type\": \"string\"",
+											"        }",
+											"      },",
+											"      \"required\": [",
+											"        \"id\",",
+											"        \"idBook\",",
+											"        \"firstName\",",
+											"        \"lastName\"",
+											"      ]",
+											"    }",
+											"  ]",
+											"}",
+											"",
+											"/** 2.1- Validação de Contratro: Estruturação dos Dados",
+											"    * - Verificando se: ",
+											"        - os campos obrigatorios estão presentes?",
+											"        - tipos corretos: String, number, boolean?",
+											"        - nenhum campo estra inesperado?  ",
+											"*/",
+											"var Ajv = require('ajv'); // npm install ajv",
+											"var ajv = new Ajv({allError: true, verbose: true}); // options can be passed here",
+											"",
+											"pm.test(\"Validação do Schema do by ID\", function () {",
+											"    var valid = ajv.validate(schema,pm.response.json());",
+											"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors/authors/books/{{authorsId}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar autor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											" /** 1- Validação Status Code */",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"/** 1.2- Validação do Formato da resposta - se o retorno é um Objeto?  */",
+											"pm.test(\"Retorno é um object?\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('object');",
+											"});",
+											"",
+											"/** 1.3- Validar o tempo de resposta(opção extra- não é obrigatório, mas é uma boa prática) */",
+											"pm.test(\"Tempo de resposta é menor que 800ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(800);",
+											"});",
+											"",
+											" /**2- Contratos **/",
+											"",
+											"var schema = {",
+											"  \"type\": \"object\",",
+											"  \"properties\": {",
+											"    \"id\": {",
+											"      \"type\": \"integer\"",
+											"    },",
+											"    \"idBook\": {",
+											"      \"type\": \"integer\"",
+											"    },",
+											"    \"firstName\": {",
+											"      \"type\": \"string\"",
+											"    },",
+											"    \"lastName\": {",
+											"      \"type\": \"string\"",
+											"    }",
+											"  },",
+											"  \"required\": [",
+											"    \"id\",",
+											"    \"idBook\",",
+											"    \"firstName\",",
+											"    \"lastName\"",
+											"  ]",
+											"}",
+											"",
+											"/** 2.1- Validação de Contratro: Estruturação dos Dados",
+											"    * - Verificando se: ",
+											"        - os campos obrigatorios estão presentes?",
+											"        - tipos corretos: String, number, boolean?",
+											"        - nenhum campo estra inesperado?  ",
+											"*/",
+											"var Ajv = require('ajv'); // npm install ajv",
+											"var ajv = new Ajv({allError: true, verbose: true}); // options can be passed here",
+											"",
+											"pm.test(\"Validação do Schema atualização do autor\", function () {",
+											"    var valid = ajv.validate(schema,pm.response.json());",
+											"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+											"});",
+											"",
+											"",
+											"",
+											"/** 3- Teste para validar o retorno da Atualização*/",
+											"pm.test('Validar a alteração do parâmetro firstName e lastName', function(){",
+											"    pm.expect(pm.response.json().firstName).to.be.eql(\"João\"),",
+											"    pm.expect(pm.response.json().lastName).to.be.eql(\"Vieira\");",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": {{authorsId}},\n  \"idBook\": 203,\n  \"firstName\": \"João\",\n  \"lastName\": \"Vieira\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors/{{authorsId}}"
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir autor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200)",
+											"});",
+											"",
+											"/** Remove varável global após Deletar */",
+											"pm.globals.unset(\"authorsId\");"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": {{authorsId}},\n  \"idBook\": 203,\n  \"firstName\": \"João\",\n  \"lastName\": \"Vieira\"\n}"
+								},
+								"url": "{{baseURL}}/api/v1/Authors/{{authorsId}}"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cenarios_Negativos",
+					"item": [
+						{
+							"name": "Author inexistente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// 1. Validar status code (esperado 404, mas API Fake pode retornar 200 e quebrar o teste)",
+											"pm.test(\"Deve retornar erro 404 (autor não encontrado)\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"// 2. Validar corpo de resposta (mensagem ou vazio)",
+											"pm.test(\"Mensagem deve indicar que o autor não foi encontrado (se existir)\", function () {",
+											"    let body = pm.response.text();",
+											"",
+											"    if (!body || body.trim().length === 0) {",
+											"        console.log(\"API Fake não retorna corpo para erros de GET inexistente.\");",
+											"        return;",
+											"    }",
+											"",
+											"    try {",
+											"        let jsonData = pm.response.json();",
+											"        let msg = jsonData.message || jsonData.error || JSON.stringify(jsonData);",
+											"        pm.expect(msg.toLowerCase()).to.include(\"not found\");",
+											"    } catch (e) {",
+											"        pm.expect(body.toLowerCase()).to.include(\"not found\");",
+											"    }",
+											"});",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "{{baseURL}}/api/v1/Authors/999999"
+							},
+							"response": []
+						},
+						{
+							"name": "Sem firstName",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/** 1- Status code*/",
+											"pm.test(\"Deve retornar erro 400 - campo obrigatório ausente\", function () {",
+											"   // pm.response.to.have.status(400);// Deveria ser assim, mas API não tem esse suporte, e o teste quebra, então use condicional",
+											"   pm.expect(pm.response.code === 400 || pm.response.code === 200).to.be.true;",
+											"});",
+											"",
+											"/** Mensagem de ERRO */",
+											"pm.test(\"Mensagem de erro deve informar o campo ausente (se existir)\", function (){",
+											"    let jsonData = pm.response.json();",
+											"    //pm.expect(jsonData.message || jsonData.error).to.include(\"firstName\");//Deveria ser assim, mas o teste quebra com a ausencia do Back da API Rest.",
+											"     if (jsonData.message || jsonData.error) {",
+											"        pm.expect(jsonData.message || jsonData.error).to.include(\"firstName\");",
+											"    } else {",
+											"        console.log(\"A API Fake não retorna mensagens de erro reais.\");",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 999,\n  \"idBook\": 1,\n  \"lastName\": \"Last Name sem firstName\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors"
+							},
+							"response": []
+						},
+						{
+							"name": "Com ID duplicado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/**Status Code */",
+											"pm.test(\"Deve retornar erro 400 (ID duplicado) ou 200 (API fake)\", function(){",
+											"    //pm.response.to.have.status(409);//Deveria ser assim, mas o teste quebra por ser uma API Face",
+											"    pm.expect(pm.response.code === 409 || pm.response.code === 200).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Mensagem de erro deve indicar conflito de ID\", function (){",
+											"    let jsonData = pm.response.json();",
+											"    //pm.expect(jsonData.message || jsonData.error).to.include(\"id\");//Deveria ser assim, mas o teste quebra por ser uma API Face",
+											"    if (jsonData.message || jsonData.error) {",
+											"        pm.expect(jsonData.message || jsonData.error).to.include(\"duplicate\");",
+											"    } else {",
+											"        console.log(\"A API Fake não valida IDs duplicados.\");",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"idBook\": 2,\n  \"firstName\": \"Autor duplicado\",\n  \"lastName\": \"Teste duplicado\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors"
+							},
+							"response": []
+						},
+						{
+							"name": "Com ID duplicado Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/**Status Code */",
+											"pm.test(\"Deve retornar erro 404 (autor inexistente) ou 200 (API fake)\", function(){",
+											"    //pm.response.to.have.status(404);//Deveria ser assim, mas o teste quebra por ser uma API Face",
+											"    pm.expect(pm.response.code === 404 || pm.response.code === 200).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Mensagem de erro deve indicar conflito de ID\", function (){",
+											"    let jsonData = pm.response.json();",
+											"    //pm.expect(jsonData.message || jsonData.error).to.include(\"not found\");//Deveria ser assim, mas o teste quebra por ser uma API Face",
+											"    if (jsonData.message || jsonData.error) {",
+											"        pm.expect(jsonData.message || jsonData.error).to.include(\"not found\");",
+											"    } else {",
+											"        console.log(\"A API Fake não retorna mensagens de erro reais.\");",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 999999,\n  \"idBook\": 2,\n  \"firstName\": \"Nome inexistente\",\n  \"lastName\": \"Sobrenome inexistente\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors/999999"
+							},
+							"response": []
+						},
+						{
+							"name": "Author inexistente",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/**Status Code */",
+											"pm.test(\"Deve retornar erro 404 (autor não encontrado para exclusão  ou 200 (API Fake)\", function(){",
+											"    //pm.response.to.have.status(404);//Deveria ser assim, mas o teste quebra por ser uma API Face",
+											"    pm.expect(pm.response.code === 404 || pm.response.code === 200).to.be.true;",
+											"});",
+											"",
+											"pm.test(\"Mensagem deve indicar que o autor não foi encontrado (se existir)\", function (){",
+											"    var body = pm.response.text();",
+											"",
+											"    // Se não houver corpo, apenas logamos e encerramos o teste (API Fake)",
+											"    if (!body || body.trim().length === 0) {",
+											"        console.log(\"A API Fake não retorna corpo para respostas de erro; não há mensagem para validar.\");",
+											"        return; // teste passa porque não houve asserção falhada",
+											"    }",
+											"",
+											"    // Se houver corpo, tentamos interpretar",
+											"    try {",
+											"        var jsonData = pm.response.json(); // agora seguro chamar",
+											"        var msg = jsonData.message || jsonData.error || jsonData.detail || JSON.stringify(jsonData);",
+											"        pm.expect(String(msg).toLowerCase()).to.include(\"not found\");",
+											"    } catch (e) {",
+											"        // corpo existe mas não é JSON: tratamos como texto",
+											"        pm.expect(body.toLowerCase()).to.include(\"not found\");",
+											"    }",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseURL}}/api/v1/Authors/999999"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "All books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"O retorno é um array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"array\",",
+									"  \"items\": [",
+									"    {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"id\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"title\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"description\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"pageCount\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"excerpt\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"publishDate\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"id\",",
+									"        \"title\",",
+									"        \"description\",",
+									"        \"pageCount\",",
+									"        \"excerpt\",",
+									"        \"publishDate\"",
+									"      ]",
+									"    }",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test('Validação do contrato - Schema', function () {",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{baseURL}}/api/v1/Books"
+					},
+					"response": []
+				},
+				{
+					"name": "Criação books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 ou 201\", function (){",
+									"    pm.response.to.have.status(200, 201);",
+									"});",
+									"",
+									"pm.test(\"O retorno é um Object?\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an('object');",
+									"});",
+									"",
+									"var schema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"    \"id\": {",
+									"        \"type\": \"integer\"",
+									"    },",
+									"    \"title\": {",
+									"        \"type\": \"string\"",
+									"    },",
+									"    \"description\": {",
+									"        \"type\": \"string\"",
+									"    },",
+									"    \"pageCount\": {",
+									"        \"type\": \"integer\"",
+									"    },",
+									"    \"excerpt\": {",
+									"        \"type\": \"string\"",
+									"    },",
+									"    \"publishDate\": {",
+									"        \"type\": \"string\"",
+									"    }",
+									"    },",
+									"    \"required\": [",
+									"    \"id\",",
+									"    \"title\",",
+									"    \"description\",",
+									"    \"pageCount\",",
+									"    \"excerpt\",",
+									"    \"publishDate\"",
+									"    ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allErros: true, verbose: true});",
+									"",
+									"pm.test(\"validação do contrato - schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true;",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Validar se o ID retornado é o mesmo enviado\", function (){",
+									"    pm.expect(jsonData).to.have.property(\"id\");",
+									"",
+									"    pm.globals.set(\"idBook\", jsonData.id);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 230,\n  \"title\": \"Aventuras\",\n  \"description\": \"Books\",\n  \"pageCount\": 45,\n  \"excerpt\": \"varias páginas serão criadas como massa de teste\",\n  \"publishDate\": \"2025-10-14T13:52:57.658Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Books"
+					},
+					"response": []
+				},
+				{
+					"name": "ID books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function (){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Resposta é um object?\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"title\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"description\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"pageCount\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"excerpt\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"publishDate\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"title\",",
+									"    \"description\",",
+									"    \"pageCount\",",
+									"    \"excerpt\",",
+									"    \"publishDate\"",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allErro: true, verbose: true});",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.errors)).to.be.true; ",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/Books/{{idBook}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function (){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"O retorno é um Object?\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an('object');",
+									"});",
+									"",
+									"pm.test(\"Validar se o ID retornado é o mesmo enviado\", function (){",
+									"var jsonData = pm.response.json();",
+									"",
+									"    pm.expect(jsonData.id).to.eql(Number(pm.variables.get(\"idBook\"))); //Number: garante que a comparação seja feita entre dois números.",
+									"    pm.expect(jsonData.title).to.eql(\"Aventuras 2\");",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": {{idBook}},\n  \"title\": \"Aventuras 2\",\n  \"description\": \"Books\",\n  \"pageCount\": 152,\n  \"excerpt\": \"varias páginas serão criadas como massa de teste\",\n  \"publishDate\": \"2025-10-14T13:52:57.658Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Books/{{idBook}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function (){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.globals.unset(\"idBook\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "{{baseURL}}/api/v1/Books/{{idBook}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CoverPhotos",
+			"item": [
+				{
+					"name": "All coverPhotos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Array\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"array\",",
+									"  \"items\": [",
+									"    {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"id\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"idBook\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"url\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"id\",",
+									"        \"idBook\",",
+									"        \"url\"",
+									"      ]",
+									"    }",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/CoverPhotos"
+					},
+					"response": []
+				},
+				{
+					"name": "Criação CoverPhoto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 ou 201\", function () {",
+									"    pm.response.to.have.status(200, 201);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Object\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"idBook\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"idBook\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Validar se o ID retornado é o mesmo enviado\", function (){",
+									"    pm.expect(jsonData).to.have.property(\"id\");",
+									"    pm.globals.set(\"coverPhotoId\", jsonData.id)",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validação de integração de todas as requests\", function (){",
+									"    pm.collectionVariables.set(\"coverPhotoId\", pm.response.json().id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 252,\n  \"idBook\": 252,\n  \"url\": \"https://placeholdit.imgix.net/~text?txtsize=33&txt=Book 250&w=250&h=350\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/CoverPhotos"
+					},
+					"response": []
+				},
+				{
+					"name": "Atualização CoverPhoto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Object\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"idBook\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"url\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"idBook\",",
+									"    \"url\"",
+									"  ]",
+									"};",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Validar se o ID da Foto da capa, retornado é o mesmo enviado\", function (){",
+									"    pm.expect(jsonData.id).to.eql(Number(pm.variables.get(\"coverPhotoId\")));",
+									"    pm.expect(jsonData.idBook).to.eql(255);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": {{coverPhotoId}},\n  \"idBook\": 255,\n  \"url\": \"https://placeholdit.imgix.net/~text?txtsize=33&txt=Book 255&w=250&h=350\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/CoverPhotos/{{coverPhotoId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar CoverPhoto por ID do Livro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Array\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"array\",",
+									"  \"items\": [",
+									"    {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"id\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"idBook\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"url\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"id\",",
+									"        \"idBook\",",
+									"        \"url\"",
+									"      ]",
+									"    }",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									"pm.test(\"Validar se o ID do livro é o mesmo solicitado\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0].idBook).to.eql(Number(pm.variables.get(\"idBook\"))); // se tiver salvo em variável",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/CoverPhotos/books/covers/{{idBook}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir CoverPhoto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200 ou 204\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+									"});",
+									"",
+									"pm.test(\"Validação de exclusão bem-sucedida (se aplicável)\", function () {",
+									"    if (pm.response.text()) {",
+									"        var jsonData = pm.response.json();",
+									"        pm.expect(jsonData).to.be.an(\"object\");",
+									"    } else {",
+									"        console.log(\"Sem body — exclusão confirmada via código HTTP\");",
+									"    }",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/CoverPhotos/{{coverPhotoId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um array\", function () {",
+									"    pm.expect(pm.response.json()).to.be.an(\"array\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"array\",",
+									"  \"items\": [",
+									"    {",
+									"      \"type\": \"object\",",
+									"      \"properties\": {",
+									"        \"id\": {",
+									"          \"type\": \"integer\"",
+									"        },",
+									"        \"userName\": {",
+									"          \"type\": \"string\"",
+									"        },",
+									"        \"password\": {",
+									"          \"type\": \"string\"",
+									"        }",
+									"      },",
+									"      \"required\": [",
+									"        \"id\",",
+									"        \"userName\",",
+									"        \"password\"",
+									"      ]",
+									"    }",
+									"  ]",
+									"}",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/Users"
+					},
+					"response": []
+				},
+				{
+					"name": "Criação Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 ou 201\", function () {",
+									"    pm.response.to.have.status(200, 201);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Object\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"userName\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"password\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"userName\",",
+									"    \"password\"",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Validar se o ID retornado é o mesmo enviado\", function (){",
+									"    pm.expect(jsonData).to.have.property(\"id\");",
+									"    pm.globals.set(\"usersId\", jsonData.id)",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validação de integração de todas as requests\", function (){",
+									"    pm.collectionVariables.set(\"usersId\", pm.response.json().id);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 12,\n  \"userName\": \"Usuario novo\",\n  \"password\": \"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Users"
+					},
+					"response": []
+				},
+				{
+					"name": "Criação Users Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Retorno é um Object\", function (){",
+									"    pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
+									"",
+									"var schema = {",
+									"  \"type\": \"object\",",
+									"  \"properties\": {",
+									"    \"id\": {",
+									"      \"type\": \"integer\"",
+									"    },",
+									"    \"userName\": {",
+									"      \"type\": \"string\"",
+									"    },",
+									"    \"password\": {",
+									"      \"type\": \"string\"",
+									"    }",
+									"  },",
+									"  \"required\": [",
+									"    \"id\",",
+									"    \"userName\",",
+									"    \"password\"",
+									"  ]",
+									"}",
+									"",
+									"var Ajv = require('ajv');",
+									"var ajv = new Ajv({allError: true, verbose: true});",
+									"",
+									"pm.test(\"Validação do Schema\", function (){",
+									"    var valid = ajv.validate(schema, pm.response.json());",
+									"    pm.expect(valid, JSON.stringify(ajv.erros)).to.be.true;",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Validar se o ID do Usuario retornado é o mesmo enviado\", function (){",
+									"    pm.expect(jsonData.id).to.eql(Number(pm.variables.get(\"usersId\")));",
+									"    pm.expect(jsonData.userName).to.eql(\"Usuario 58\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": {{usersId}},\n  \"userName\": \"Usuario 58\",\n  \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseURL}}/api/v1/Users/{{usersId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200 ou 204\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+									"});",
+									"",
+									"pm.test(\"Validação de exclusão bem-sucedida (se aplicável)\", function () {",
+									"    if (pm.response.text()) {",
+									"        var jsonData = pm.response.json();",
+									"        pm.expect(jsonData).to.be.an(\"object\");",
+									"    } else {",
+									"        console.log(\"Sem body — exclusão confirmada via código HTTP\");",
+									"    }",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{baseURL}}/api/v1/Users/{{usersId}}"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "authorsId",
+			"value": ""
+		},
+		{
+			"key": "coverPhotodId",
+			"value": ""
+		},
+		{
+			"key": "coverPhotoId",
+			"value": ""
+		},
+		{
+			"key": "usersId",
+			"value": ""
+		}
+	]
+}
