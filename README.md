@@ -128,7 +128,7 @@ Relatórios gerados com o **Newman**:
 ## 👩‍💻 Autora
 <a href="https://www.linkedin.com/in/fabriciafernandes/" target="_blank">
   <p align="center">
-    <img src="../image/eu.png" alt="Imagem da autora" width="150"; style="border-radius: 8%"/>
+    <img src="./" alt="Imagem da autora" width="150"; style="border-radius: 8%"/>
     <br/>
     <strong>Fabrícia Fernandes - QA Analyst</strong>
   </p>
